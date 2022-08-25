@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-main',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
 
@@ -26,7 +26,12 @@ export class GameComponent implements OnInit {
 
     const jackGameBoard = document.getElementById("jackGameBoard");
     const pNode = document.createElement("p");
-    pNode.setAttribute("id", "jackGameCurrentValue");
+    pNode.setAttribute("id", "jackGameCurrentValue",);
+    pNode.setAttribute(
+      'style',
+      'color: white; font-size: 20px; font-family: "Bebas Neue";'
+    );
+    
     pNode.innerHTML = `Current Value: ${GameComponent.currentValue}`;
 
     if (jackGameBoard != null) {
@@ -38,6 +43,10 @@ export class GameComponent implements OnInit {
     GameComponent.deckIDGlobal = deckID;
 
     let buttonNode = document.createElement("button");
+    buttonNode.setAttribute(
+      'style',     
+      'padding: 5px; margin: 20px; width: 75px; border-radius: 5px; background-color: white; cursor: pointer; margin: 30px auto; font-size: 20px;'
+      )
     buttonNode.innerHTML = "Hit";
     buttonNode.addEventListener('click', this.jackGameHit);
     buttonNode.setAttribute("id", "jackGameHitButton");
@@ -46,6 +55,10 @@ export class GameComponent implements OnInit {
       jackGameBoard.appendChild(buttonNode);
     }
     buttonNode = document.createElement("button");
+    buttonNode.setAttribute(
+      'style',     
+      'padding: 5px; margin: 20px; width: 75px; border-radius: 5px; background-color: white; cursor: pointer; margin: 30px auto; font-size: 20px;'
+      )
     buttonNode.innerHTML = "Stand";
     buttonNode.addEventListener('click', this.jackGameStand);
     buttonNode.setAttribute("id", "jackGameStandButton");
@@ -56,7 +69,8 @@ export class GameComponent implements OnInit {
     }
 
     let playingCard = await GameComponent.jackDrawCard(deckID);
-    let playingCardImage = document.createElement("IMG");
+    let playingCardImage = document.createElement("img");
+    playingCardImage.style.height = '150px';
     playingCardImage.setAttribute("src", playingCard.cards[0].image);
     playingCardImage.setAttribute("alt", playingCard.cards[0].value);
 
@@ -83,7 +97,8 @@ export class GameComponent implements OnInit {
     //
 
     playingCard = await GameComponent.jackDrawCard(deckID);
-    playingCardImage = document.createElement("IMG");
+    playingCardImage = document.createElement("img");
+    playingCardImage.style.height = '150px';
     playingCardImage.setAttribute("src", playingCard.cards[0].image);
     playingCardImage.setAttribute("alt", playingCard.cards[0].value);
 
@@ -124,7 +139,8 @@ export class GameComponent implements OnInit {
 
   async jackGameHit(): Promise<void> {
     const playingCard = await GameComponent.jackDrawCard(GameComponent.deckIDGlobal);
-    const playingCardImage = document.createElement("IMG");
+    const playingCardImage = document.createElement("img");
+    playingCardImage.style.height = '150px';
     playingCardImage.setAttribute("src", playingCard.cards[0].image);
     playingCardImage.setAttribute("alt", playingCard.cards[0].value);
 
@@ -237,6 +253,10 @@ export class GameComponent implements OnInit {
     }
 
     pNode = document.createElement("p");
+    pNode.setAttribute(
+      'style',
+      'color: white; font-size: 20px; font-family: "Bebas Neue";'
+    );
     if (GameComponent.currentValue >= dealerCurrentValue || dealerCurrentValue > 21) {
         pNode.innerHTML = `You won!`;
     } else {
