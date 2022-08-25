@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { GameComponent } from './components/game/game.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'game', component:GameComponent},
   {path: 'login', component:LoginComponent},
+  {path: 'profile', component:ProfileComponent},
 
    // a WildCard Route is used to handle unknown paths (ALWAYS goes last)
   {path: '**', component:MainComponent}
