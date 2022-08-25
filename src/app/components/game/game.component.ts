@@ -10,18 +10,30 @@ export class GameComponent implements OnInit {
   static currentValue: number = 0;
   static aceCount: number = 0;
   static deckIDGlobal: string = "";
+  static isDisabled: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  get getIsDisabled() {
+    return GameComponent.isDisabled;
+  }
+
   async jackStartBlackJack(): Promise<void> {
+    document.getElementById("jackGameBoard")?.remove();
+    const newJackGameBoard = document.createElement("div");
+    newJackGameBoard.setAttribute("id", "jackGameBoard",);
+    newJackGameBoard.setAttribute("class", "game",);
+    document.getElementById("jackFrame")?.appendChild(newJackGameBoard);
+
     GameComponent.currentValue = 0;
     GameComponent.aceCount = 0;
     const jackPlayButton = document.getElementById("jackPlayButton");
     if (jackPlayButton != null) {
-      jackPlayButton.remove();
+      jackPlayButton.innerHTML = "Game In Progress"
+      GameComponent.isDisabled = true;
     }
 
     const jackGameBoard = document.getElementById("jackGameBoard");
@@ -31,7 +43,7 @@ export class GameComponent implements OnInit {
       'style',
       'color: white; font-size: 20px; font-family: "Bebas Neue";'
     );
-    
+
     pNode.innerHTML = `Current Value: ${GameComponent.currentValue}`;
 
     if (jackGameBoard != null) {
@@ -44,7 +56,7 @@ export class GameComponent implements OnInit {
 
     let buttonNode = document.createElement("button");
     buttonNode.setAttribute(
-      'style',     
+      'style',
       'padding: 5px; margin: 20px; width: 75px; border-radius: 5px; background-color: white; cursor: pointer; margin: 30px auto; font-size: 20px;'
       )
     buttonNode.innerHTML = "Hit";
@@ -56,7 +68,7 @@ export class GameComponent implements OnInit {
     }
     buttonNode = document.createElement("button");
     buttonNode.setAttribute(
-      'style',     
+      'style',
       'padding: 5px; margin: 20px; width: 75px; border-radius: 5px; background-color: white; cursor: pointer; margin: 30px auto; font-size: 20px;'
       )
     buttonNode.innerHTML = "Stand";
@@ -182,6 +194,11 @@ export class GameComponent implements OnInit {
           jackGameCurrentValue.innerHTML += ", Bust!"
           document.getElementById("jackGameHitButton")?.remove();
           document.getElementById("jackGameStandButton")?.remove();
+          const jackPlayButton = document.getElementById("jackPlayButton");
+          if (jackPlayButton != null) {
+            jackPlayButton.innerHTML = "Play Again";
+            GameComponent.isDisabled = false;
+          }
         }
       }
     }
@@ -264,6 +281,12 @@ export class GameComponent implements OnInit {
     }
     if (jackGameBoard != null) {
       jackGameBoard.appendChild(pNode);
+    }
+
+    const jackPlayButton = document.getElementById("jackPlayButton");
+    if (jackPlayButton != null) {
+      jackPlayButton.innerHTML = "Play Again";
+      GameComponent.isDisabled = false;
     }
   }
 }
