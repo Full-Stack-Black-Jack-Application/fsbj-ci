@@ -1,0 +1,46 @@
+
+@font-face {
+  font-family: 'PokerKings';
+  src: local("PokerKings"), url(/assets/fonts/poker-kings-font/PokerKings.ttf) format("truetype");
+  }
+
+@font-face {
+  font-family: 'RoyalFlush';
+  src: local("RoyalFlush"), url(/assets/fonts/royal-flush-font/RoyalFlush.ttf) format("truetype");
+}
+
+
+.background {
+  background-image: url("/assets/images/table.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  height: 100vh;
+  z-index: -1;
+}
+
+.characters {
+  font-family: RoyalFlush;
+  color: red;
+  font-size: 55px;
+  margin: auto 5px;
+}
+
+.header {
+  width: 100%;
+  background-color: black;
+  height: fit-content;
+}
+
+.flex {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: PokerKings, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: white;
+  font-size: 50px;
+  height: fit-content;
+}
