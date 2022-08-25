@@ -1,0 +1,21 @@
+.flex {
+    display: flex;
+    justify-items: center;
+    justify-content: space-around;
+}
+
+.nav {
+    background-color: black;
+    padding: 10px;
+}
+
+.nav-link {
+    color: white;
+    font-family: 'Bebas Neue';
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: rgb(255, 238, 0);
+}
