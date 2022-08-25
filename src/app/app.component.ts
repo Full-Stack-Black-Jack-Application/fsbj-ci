@@ -3,8 +3,14 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'full-stack-black-jack-ci';
+  title = 'rolodex-ui';
+
+  isLoggedIn: boolean = true;
+
+  login() {
+    // toggles isLoggedIn
+  }
 }
