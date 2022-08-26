@@ -1,7 +1,39 @@
+@font-face {
+    font-family: 'RoyalFlush';
+    src: local("RoyalFlush"), url(/assets/fonts/royal-flush-font/RoyalFlush.ttf) format("truetype");
+}
+
+.back {
+    background-color: black;
+    padding: 15px 0px;
+}
+
+.background {
+    background-image: url("/assets/images/table.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    height: 100vh;
+    z-index: -1;
+    margin: -30px auto;
+}
+
 .center {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    margin: auto;
+}
+
+.characters {
+    font-family: 'RoyalFlush';
+    font-size: 50px;
+    margin: 15px auto 0px auto;
+    color: red;
+}
+
+.column {
+    display: flex;
     flex-direction: column;
 }
 
@@ -16,28 +48,33 @@
     font-family: 'Bebas Neue';
 }
 
+.instruct {
+    width: 800px;
+}
+
 img {
     max-width: 100px;
 }
 
-label, input, button, p, #jackPlayButton {
+label, input, button, p, #jackPlayButton, .p {
     font-family: 'Bebas Neue';
 }
 
 .margin{
-    margin-top: -20px;
+    margin: 15px auto;
 }
 
-p, label {
+p, label, .p {
     color: white;
     font-size: 20px;
 }
 
 .submit {
+    width: 130px;
     padding: 10px;
     border-radius: 5px;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: red;
     cursor: pointer;
     margin: 30px auto;
     font-size: 20px;
@@ -45,4 +82,11 @@ p, label {
 
 .submit:hover {
     background-color: rgb(255, 238, 0);
+    color: black;
+}
+
+.title {
+    color: red;
+    font-size: 40px;
+    font-family: 'Bebas Neue';
 }
