@@ -29,7 +29,7 @@ export class GameComponent implements OnInit {
     pNode.setAttribute("id", "jackGameCurrentValue",);
     pNode.setAttribute(
       'style',
-      'color: white; font-size: 20px; font-family: "Bebas Neue";'
+      'color: white; font-size: 30px; font-family: "Bebas Neue";'
     );
     
     pNode.innerHTML = `Current Value: ${GameComponent.currentValue}`;
@@ -45,7 +45,7 @@ export class GameComponent implements OnInit {
     let buttonNode = document.createElement("button");
     buttonNode.setAttribute(
       'style',     
-      'padding: 5px; margin: 20px; width: 75px; border-radius: 5px; background-color: white; cursor: pointer; margin: 30px auto; font-size: 20px;'
+      'padding: 10px; margin: -10px auto 20px auto; width: 130px; font-family: "Bebas Neue"; border-radius: 5px; background-color: white; cursor: pointer; font-size: 20px;'
       )
     buttonNode.innerHTML = "Hit";
     buttonNode.addEventListener('click', this.jackGameHit);
@@ -57,7 +57,7 @@ export class GameComponent implements OnInit {
     buttonNode = document.createElement("button");
     buttonNode.setAttribute(
       'style',     
-      'padding: 5px; margin: 20px; width: 75px; border-radius: 5px; background-color: white; cursor: pointer; margin: 30px auto; font-size: 20px;'
+      'padding: 10px; margin: -10px auto 20px auto;  width: 130px; font-family: "Bebas Neue"; border-radius: 5px; background-color: white; cursor: pointer; auto; font-size: 20px;'
       )
     buttonNode.innerHTML = "Stand";
     buttonNode.addEventListener('click', this.jackGameStand);
@@ -70,7 +70,8 @@ export class GameComponent implements OnInit {
 
     let playingCard = await GameComponent.jackDrawCard(deckID);
     let playingCardImage = document.createElement("img");
-    playingCardImage.style.height = '150px';
+    playingCardImage.style.height = '220px';
+    playingCardImage.style.margin = "-15px auto -10px 0px";
     playingCardImage.setAttribute("src", playingCard.cards[0].image);
     playingCardImage.setAttribute("alt", playingCard.cards[0].value);
 
@@ -98,7 +99,8 @@ export class GameComponent implements OnInit {
 
     playingCard = await GameComponent.jackDrawCard(deckID);
     playingCardImage = document.createElement("img");
-    playingCardImage.style.height = '150px';
+    playingCardImage.style.height = '220px';
+    playingCardImage.style.margin = "-15px auto -10px 0px";
     playingCardImage.setAttribute("src", playingCard.cards[0].image);
     playingCardImage.setAttribute("alt", playingCard.cards[0].value);
 
@@ -140,7 +142,8 @@ export class GameComponent implements OnInit {
   async jackGameHit(): Promise<void> {
     const playingCard = await GameComponent.jackDrawCard(GameComponent.deckIDGlobal);
     const playingCardImage = document.createElement("img");
-    playingCardImage.style.height = '150px';
+    playingCardImage.style.height = '220px';
+    playingCardImage.style.margin = "-15px auto -10px 0px";
     playingCardImage.setAttribute("src", playingCard.cards[0].image);
     playingCardImage.setAttribute("alt", playingCard.cards[0].value);
 
@@ -195,6 +198,10 @@ export class GameComponent implements OnInit {
     let dealerAceCount = 0;
     let pNode = document.createElement("p");
     pNode.setAttribute("id", "jackGameDealerValue");
+    pNode.setAttribute(
+      'style',
+      'color: white; font-size: 30px; font-family: "Bebas Neue";'
+    )
     pNode.innerHTML = `Dealer's Current Value: ${dealerCurrentValue}`;
 
     const jackGameBoard = document.getElementById("jackGameBoard");
@@ -206,6 +213,8 @@ export class GameComponent implements OnInit {
     while (dealerCurrentValue < Math.min(GameComponent.currentValue + 1, 17)) {
       const playingCard = await GameComponent.jackDrawCard(GameComponent.deckIDGlobal);
       const playingCardImage = document.createElement("IMG");
+      playingCardImage.style.height = '220px';
+      playingCardImage.style.margin = "-15px auto -10px 0px";
       playingCardImage.setAttribute("src", playingCard.cards[0].image);
       playingCardImage.setAttribute("alt", playingCard.cards[0].value);
 
@@ -255,7 +264,7 @@ export class GameComponent implements OnInit {
     pNode = document.createElement("p");
     pNode.setAttribute(
       'style',
-      'color: white; font-size: 20px; font-family: "Bebas Neue";'
+      'color: white; font-size: 30px; font-family: "Bebas Neue";'
     );
     if (GameComponent.currentValue >= dealerCurrentValue || dealerCurrentValue > 21) {
         pNode.innerHTML = `You won!`;
