@@ -18,8 +18,8 @@
 
 .center2 {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
 }
 
 .margin{
@@ -30,12 +30,14 @@ p {
     color: white;
     font-size: 20px;
     font-family: 'Bebas Neue';
-    margin: 0px 5px;
+    margin: auto 15px;
+}
+
+.right {
+    display: flex;
 }
 
 .submit {
-    width: 200px;
-    padding: 10px;
     border-radius: 5px;
     color: white;
     background-color: red;
@@ -44,6 +46,17 @@ p {
     font-size: 20px;
     font-family: 'Bebas Neue';
     text-decoration: none;
+}
+
+.width1 {
+    width: 200px;
+    padding: 10px;
+    margin: auto 80px;
+}
+
+.width2 {
+    width: 75px;
+    padding: 5px;
 }
 
 .submit:hover {

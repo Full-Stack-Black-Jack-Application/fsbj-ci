@@ -1,10 +1,11 @@
 
 <div class="">
-    <div class="center back">
+    <div class="center back margin">
         <div class="instruct">
             <div class="title center">How To Play!</div>
             <p class="center">Players attempt to reach, but not exceed, a score of 21</p>
             <p class="center">Hit to get another card</p>
+            <p class="center">Stand to keep your current hand</p>
             <p class="center">The dealer will stand on 17</p>
             <p class="center margin">Bets cannot exceed current balance</p>
             <p class="characters center">A</p><br>
@@ -17,20 +18,13 @@
             <label class="center" for="jackWagerAmount">Enter your Bet:</label><br>
             <input class="center" type="number" min="1" step="any" id="jackWagerAmount" value="100">
             <p class="center margin">Current Balance:</p>
-            <button class="center margin" id="jackPlayButton" class="submit" type="button" (click)="jackStartBlackJack()">Play</button>
+            <p class="center margin">$500</p>
+            <button id="jackPlayButton" class="submit" type="button" [disabled]="getIsDisabled" (click)="jackStartBlackJack()">Play</button>
         </div>
     </div>
 
     <div class="background">
 <div class="margin center" id="jackFrame">
-    <div class="card">
-        <p>The dealer will stand on 17</p>
-        <label for="jackWagerAmount">Wager:</label>
-        <input type="number" min="1" step="any" id="jackWagerAmount" value="100">
-    </div>
-
-    <button id="jackPlayButton" class="submit" type="button" [disabled]="getIsDisabled" (click)="jackStartBlackJack()">Play</button>
-
 
         <div class="game" id="jackGameBoard"></div>
 
