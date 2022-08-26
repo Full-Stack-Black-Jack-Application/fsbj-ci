@@ -9,6 +9,9 @@ import { MainComponent } from './components/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { GameComponent } from './components/game/game.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     AllComponent,
     NavComponent,
     MainComponent,
-    RegisterComponent
+    RegisterComponent,
+    GameComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

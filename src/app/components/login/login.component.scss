@@ -1,0 +1,124 @@
+/*  LOGIN FORM STYLES  */
+.form{
+	height: auto;
+	width: 500px;
+	padding: 0px 0px 15px 0px;
+    background-color: black;
+	flex-direction: column;
+	position: relative;
+    margin: auto;
+}
+
+.buttons{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-around;
+    align-items: center;
+	float: left;
+    color: white;
+    z-index: 1;
+}
+.btn{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	font-size: 28px;
+	width: 50%;
+	cursor: pointer;
+    margin: 10px;
+}
+
+
+#chbox:checked ~ .SignUp_form{
+	display: flex;
+}
+
+#chbox:checked ~ .login_form{
+	display: none;
+}
+
+#chbox:checked + .layer{
+	left: 50%;
+}
+#chbox:checked ~ .layer2{
+	left: 50%;
+}
+#chbox{
+	display: none;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+label, input, button, p {
+    font-family: 'Bebas Neue';
+}
+
+label {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    margin: 25px 0px -5px 0px;
+    font-size: 20px;
+}
+
+.layer{
+	content: '';
+	height: 50px;
+	width: 50%;
+	background-color: transparent;
+	float: right;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+    z-index: 0;
+}
+.layer2{
+	content: '';
+	height: 50px;
+	z-index: 0;
+	width: 50%;
+	background-color: red;
+	float: right;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+/* LOGIN FORM */
+
+input {
+        color: white;
+        padding: 7px;
+        width: 400px;
+    }
+
+p {
+	color: white;
+	margin: -10px auto;
+}
+
+
+.submit{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    margin: 30px auto;
+    font-size: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.submit:hover {
+    background-color: rgb(255, 238, 0);
+}
+
+.SignUp_form{
+	display: none;
+    flex-direction: column;
+}

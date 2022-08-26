@@ -1,0 +1,47 @@
+<div class="form flex">
+    <div class="buttons">
+        <label for="chbox" class="login btn"><span>Login</span></label>
+        <label for="chbox" class="SignUp btn"><span>SignUp</span></label>
+    </div>
+
+    <input type="checkbox" id="chbox">	
+    <div class="layer"></div>
+    <div class="layer2"></div>
+    <div class="login_form">
+        <div class="">
+            <label for="email">Email:</label> <br>
+            <input type="text" class="" id="username" placeholder="Email" required/>
+        </div>
+        <div class="">
+            <label for="password">Password:</label> <br>
+            <p>Min 8 characters, one lowercase letter, one uppercase letter, one number</p><br>
+            <input type="text" class="" id="pswd" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Not right format" required/>
+        </div>
+        <button class="submit" (click)="login()">Submit</button>
+    </div>
+
+    <div class="SignUp_form flex">
+        <div class="">
+            <label for="fName">First Name:</label><br> 
+            <input type="text" class="" id="fName" placeholder="First Name" required/>
+        </div>
+        <div class="">
+            <label for="lName">Last Name:</label><br> 
+            <input type="text" class="" id="lName" placeholder="Last Name" required/>
+        </div>
+        <div class="">
+            <label for="email">Email:</label><br> 
+            <input type="text" class="" id="email" placeholder="Email" required/>
+        </div>
+        <div class="">
+            <label for="password">Password:</label> <br>
+            <p>Min 8 characters, one lowercase letter, one uppercase letter, one number</p><br>
+            <input type="text" class="" id="pswd" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Not right format" required/>
+        </div>
+        <div class="">
+            <label for="code">Referral Code:</label><br> 
+            <input type="text" class="" id="refCode" placeholder="Referral Code" required/>
+        </div>
+
+        <button class="submit" (click)="registerUser()">Register</button>
+    </div>

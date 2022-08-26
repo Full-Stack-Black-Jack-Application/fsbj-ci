@@ -1,7 +1,4 @@
-<app-nav *ngIf="isLoggedIn"></app-nav>
-
-
-<div class="container">
+<!-- <div class="container">
 
   <div class="card bg-dark text-white border-0 my-auto w-100">
 
@@ -12,5 +9,18 @@
     </div>
 
   </div>
+
+</div> -->
+
+<div class="header flex">
+  <p class="characters">B</p>
+  <p class="flex title">Full Stack BlackJack</p>
+  <p class="characters">J</p>
+</div>
+
+<div class="background">
+
+  <app-nav *ngIf="staticIsLoggedIn"></app-nav>
+  <router-outlet></router-outlet>
 
 </div>

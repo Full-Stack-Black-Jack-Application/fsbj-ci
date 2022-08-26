@@ -1,53 +1,34 @@
 export class User {
-  // classes  enforce behavior around how an object can be initialized
-    id: number;
-    firstName: string;
-    lastName: string;
-    username: string;
-    password: string;
-    email: string;
-    addresses: Address[];
+  id: number;
+  wins: number;
+  losses: number;
+  balance: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  pswd: string;
+  referralCode: string;
 
-    // ctrl + shift + p > TypeScript Constructor Generator
-    constructor(
+
+constructor(
       id: number,
+      wins: number,
+      losses:number,
+      balance: number,
       firstName: string,
       lastName: string,
-      username: string,
-      password: string,
       email: string,
-      addresses: Address[]
+      pswd: string,
+      referralCode: string
   ) {
-      this.id = id
-      this.firstName = firstName
-      this.lastName = lastName
-      this.username = username
-      this.password = password
-      this.email = email
-      this.addresses = addresses
-    }
-  }
-
-  export class Address {
-
-    constructor(
-      street: string,
-      secondary: string,
-      state: string,
-      city: string,
-      zip: string
-  ) {
-      this.street = street
-      this.secondary = secondary
-      this.state = state
-      this.city = city
-      this.zip = zip
-    }
-
-    street: string;
-    secondary: string;
-    state: string;
-    city: string;
-    zip: string;
-
-  }
+      this.id=id
+      this.wins=wins
+      this.losses=losses
+      this.balance=balance
+      this.firstName=firstName
+      this.lastName=lastName
+      this.email=email
+      this.pswd=pswd
+      this.referralCode=referralCode
+}
+}
