@@ -1,40 +1,40 @@
 <div class="back">
-    <h2 class="title margin">Name</h2>
+    <h2 class="title margin" id="jackName">Name</h2>
 
     <div>
         <div class="margin center">
             <p>Balance:</p>
-            <div class="right">
-                <p>$500</p>
-                <button class="submit width2">Edit</button>
+            <div class="right" id="jackBalanceDiv">
+                <p id="jackBalance">$0</p>
+                <button class="submit width2" (click)="jackEditBalance()" id="jackBalanceButton">Edit</button>
             </div>
         </div><br>
         <div class="margin center">
             <p>First Name:</p>
-            <div class="right">
-                <p>Jimmie</p>
-                <button class="submit width2">Edit</button>
+            <div class="right" id="jackFirstNameDiv">
+                <p id="jackFirstName"></p>
+                <button class="submit width2" (click)="jackEditFirstName()" id="jackFirstNameButton">Edit</button>
             </div>
         </div>
         <div class="margin center">
             <p>Last Name:</p>
-            <div class="right">
-                <p>Hendrix</p>
-                <button class="submit width2">Edit</button>
+            <div class="right" id="jackLastNameDiv">
+                <p id="jackLastName"></p>
+                <button class="submit width2" (click)="jackEditLastName()" id="jackLastNameButton">Edit</button>
             </div>
         </div>
         <div class="margin center">
             <p>Email:</p>
-            <div class="right">
-                <p>jimmie@mail.com</p>
-                <button class="submit width2">Edit</button>
+            <div class="right" id="jackEmailDiv">
+                <p id="jackEmail">@mail.com</p>
+                <button class="submit width2" (click)="jackEditEmail()" id="jackEmailButton">Edit</button>
             </div>
         </div>
         <div class="margin center">
             <p>Password:</p>
-            <div class="right">
-                <p>rockOn!3</p>
-                <button class="submit width2">Edit</button>
+            <div class="right" id="jackPasswordDiv">
+                <p>********</p>
+                <button class="submit width2" (click)="jackEditPassword()" id="jackPasswordButton">Edit</button>
             </div>
         </div>
     </div>
