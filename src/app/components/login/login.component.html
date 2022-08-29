@@ -17,6 +17,7 @@
             <input type="text" class="" id="pswd" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Not right format" required/>
             <p>Min 8 characters, one lowercase letter, one uppercase letter, one number</p><br>
         </div>
+        <div class="error flex">{{loginErrMsg}}</div>
         <button [(ngModel)]="pswd" name="pswd" class="submit" (click)="login()">Submit</button>
     </div>
 
@@ -46,7 +47,5 @@
         </div>
 
         <button class="submit" (click)="registerUser()">Register</button>
-
-        <p>{{loginErrMsg}}</p>
 
     </div>

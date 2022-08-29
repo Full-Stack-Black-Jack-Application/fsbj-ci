@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'game', component:GameComponent},
   {path: 'login', component:LoginComponent},
   {path: 'profile', component:ProfileComponent},
+  {path: '', component:LoginComponent},
 
    // a WildCard Route is used to handle unknown paths (ALWAYS goes last)
   {path: '**', component:MainComponent}

@@ -15,6 +15,6 @@ export class NavComponent implements OnInit {
 
   signOut() {
     window.location.reload();
-    window.location.href = url + '/login'
+    window.location.href = url + 'login'
   }
 }

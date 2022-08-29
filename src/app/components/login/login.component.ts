@@ -18,7 +18,7 @@ export class LoginComponent {
 
   isLoading = false;
 
-  loginErrMsg = '';
+  loginErrMsg: string = '';
 
   clientMessage: ClientMessage = new ClientMessage('');
 
@@ -50,42 +50,13 @@ export class LoginComponent {
     }
 
     if (res.status === 401) {
-      //console.log("Unauth");
+      this.loginErrMsg = 'Failed Login';
     }
 
     if(!this.email.trim() || !this.pswd.trim()) {
       this.loginErrMsg = 'Failed Login';
       return;
     }
-
-    this.isLoading = true;
-    this.authService.login(this.email, this.pswd)
-      .subscribe(
-        (response) => {
-          this.isLoading= false;
-
-          console.log(response);
-
-            let token: string | null = response.headers.get('blackjack-token') || '{}';
-
-            sessionStorage.setItem('token', token);
-
-            AppComponent.isLoggedIn = true;
-            this.appComponent.updateUserInfo(response.body.email)
-        },
-        () => {
-          this.isLoading = false;
-          this.loginErrMsg = 'Login Failed'
-        }
-      );
-
-      this.email = '';
-      this.pswd = '';
-    if(!this.email.trim() || !this.pswd.trim()) {
-      this.loginErrMsg = 'Failed Login';
-      return;
-    }
-
     this.isLoading = true;
     this.authService.login(this.email, this.pswd)
       .subscribe({
