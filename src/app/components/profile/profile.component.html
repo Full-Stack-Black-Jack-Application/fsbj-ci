@@ -10,33 +10,33 @@
             <div class="margin center">
                 <p>First Name:</p>
                 <div id="edit" class="right" *ngIf="show">
-                    <p>Jimi</p>
+                    <p id="jackFirstName"></p>
                     <button class="submit width2" (click)="toggle()">Edit</button>
                 </div>
                 <div id="submit" class="right center" *ngIf="hide">
-                    <input class="input-width" type="text">
+                    <input class="input-width" type="text" id="jackFirstNameInput">
                     <button class="submit width2" (click)="toggle()">Update</button>
                 </div>
             </div>
             <div class="margin center">
                 <p>Last Name:</p>
                 <div id="edit" class="right" *ngIf="show1">
-                    <p>Hendrix</p>
+                    <p id="jackLastName"></p>
                     <button class="submit width2" (click)="toggle1()">Edit</button>
                 </div>
                 <div id="submit" class="right center" *ngIf="hide1">
-                    <input class="input-width" type="text">
+                    <input class="input-width" type="text" id="jackLastNameInput">
                     <button class="submit width2" (click)="toggle1()">Update</button>
                 </div>
             </div>
             <div class="margin center">
                 <p>Email:</p>
                 <div id="edit" class="right" *ngIf="show2">
-                    <p>jimi@mail.com</p>
+                    <p id="jackEmail">@mail.com</p>
                     <button class="submit width2" (click)="toggle2()">Edit</button>
                 </div>
                 <div id="submit" class="right center" *ngIf="hide2">
-                    <input class="input-width" type="text">
+                    <input class="input-width" type="text" id="jackEmailInput">
                     <button class="submit width2" (click)="toggle2()">Update</button>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             </div>
             <div id="submit" *ngIf="hide3">
                 <div class="right center">
-                    <input class="input-width" type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                    <input class="input-width" type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" id="jackPasswordInput">
                     <button class="submit width2" (click)="toggle3()">Update</button><br>
                 </div>
                 <div class="pswd">Min 8 characters, one lowercase letter, one uppercase letter, one number</div>
@@ -64,14 +64,14 @@
         <div class="margin center">
             <p>Balance:</p>
             <div id="edit" class="right" *ngIf="show4">
-                <p>$500</p>
+                <p id="jackBalance">$0</p>
                 <button class="submit width2" (click)="toggle4()">Edit</button>
             </div>
             <div id="submit" class="right" *ngIf="hide4">
                     <div class="right center">
-                    <input class="input-width2" type="number">
-                    <button class="submit width3" (click)="toggle4()">Deposit</button>
-                    <button class="submit width3" (click)="toggle4()">Withdraw</button>
+                    <input class="input-width2" type="number" id="jackBalanceInput">
+                    <button class="submit width3" (click)="jackBalanceDeposit()">Deposit</button>
+                    <button class="submit width3" (click)="jackBalanceWithdrawal()">Withdraw</button>
                 </div>
             </div>
         </div><br>
