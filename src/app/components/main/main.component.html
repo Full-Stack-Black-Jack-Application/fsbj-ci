@@ -1,6 +1,6 @@
 <div class="back">
     <div class="flex margin2">
-        <h2 class="title title2 margin3">Welcome {{ac.email}}</h2>
+        <h2 class="title title2 margin3" id="jackWelcomeName">Welcome {{ac.email}}</h2>
     </div>
     <hr>
 
@@ -9,15 +9,15 @@
     <div class="block">
         <div class="margin center">
             <p>Wins:</p>
-            <p>5</p>
+            <p id="jackWins">0</p>
         </div>
         <div class="margin center">
             <p>Losses:</p>
-            <p>5</p>
+            <p id="jackLosses">0</p>
         </div>
         <div class="margin center">
             <p>Referral Code:</p>
-            <p>E5M8-I2J1</p>
+            <p id="jackReferral">xxxx-xxxx-xxxx</p>
         </div>
     </div>
     <hr>
@@ -28,7 +28,7 @@
         <div class="margin center">
             <p>Balance:</p>
             <div id="edit" class="right" *ngIf="show">
-                <p>$500</p>
+                <p id="jackBalance">$0</p>
                 <button class="submit width2" (click)="toggle()">Edit</button>
             </div>
             <div id="submit" class="right" *ngIf="hide">
