@@ -1,4 +1,4 @@
-import { ClientMessage } from './client-message';
+import { ClientMessage } from '../client-message';
 
 describe('ClientMessage', () => {
   it('should create an instance', () => {

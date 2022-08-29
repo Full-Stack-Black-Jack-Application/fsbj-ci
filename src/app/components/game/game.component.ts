@@ -12,9 +12,17 @@ export class GameComponent implements OnInit {
   static deckIDGlobal: string = "";
   static isDisabled: boolean = false;
 
+  show = false;
+  hide = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggle() {
+    this.show=!this.show;
+    this.hide=!this.hide;
   }
 
   get getIsDisabled() {

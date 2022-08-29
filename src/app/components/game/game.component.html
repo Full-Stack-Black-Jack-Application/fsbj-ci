@@ -1,30 +1,41 @@
 
 <div class="">
-    <div class="center back margin">
-        <div class="instruct">
-            <div class="title center">How To Play!</div>
-            <p class="center">Players attempt to reach, but not exceed, a score of 21</p>
-            <p class="center">Hit to get another card</p>
-            <p class="center">Stand to keep your current hand</p>
-            <p class="center">The dealer will stand on 17</p>
-            <p class="center margin">Bets cannot exceed current balance</p>
-            <p class="characters center">A</p><br>
-            <p class="center"> worth 1 or 11 points</p>
-            <p class="characters center">J Q K</p><br>
-            <p class="center"> worth 10 points</p>
-            <p class="center">All other cards are worth face value</p>
+    <div class="back margin">
+
+        <div class="margin center column">
+            <label class="column center" for="jackWagerAmount">Enter your Bet:</label><br>
+            <input class="column center" type="number" min="1" step="any" id="jackWagerAmount" value="100">
+            <p class="column top p center">Current Balance:</p>
+            <p class="column margin p">$500</p>
+            <button id="jackPlayButton" class="submit center" type="button" [disabled]="getIsDisabled" (click)="jackStartBlackJack()">Play</button>
         </div>
-        <div class="margin">
-            <label class="center" for="jackWagerAmount">Enter your Bet:</label><br>
-            <input class="center" type="number" min="1" step="any" id="jackWagerAmount" value="100">
-            <p class="center margin">Current Balance:</p>
-            <p class="center margin">$500</p>
-            <button id="jackPlayButton" class="submit" type="button" [disabled]="getIsDisabled" (click)="jackStartBlackJack()">Play</button>
+
+        <div class="center2 margin4">
+            <div class="title">How To Play?</div>
+            <button *ngIf="hide" class="arrow" (click)="toggle()">Show</button>
+            <button *ngIf="show" class="arrow" (click)="toggle()">Hide</button>
+        </div>
+        <div class="center3 border" *ngIf="show">
+            <div class="margin3">
+                <div class="title center">Directions</div>
+                <p class="center top">Players attempt to reach, but not exceed, a score of 21.</p>
+                <p class="center">The dealer stands on 17.</p>
+                <p class="center"> Hit to get another card, stand to keep your current hand.</p>
+                <p class="center margin">Bets cannot exceed current balance.</p>
+            </div>
+            <div class="margin3">
+                <div class="title center">Card Values</div>
+                <p class="characters center">A</p><br>
+                <p class="center"> worth 1 or 11 points</p>
+                <p class="characters center">J Q K</p><br>
+                <p class="center"> worth 10 points</p>
+                <p class="center">All other cards are worth face value</p>
+            </div>
         </div>
     </div>
 
     <div class="background">
-<div class="margin center" id="jackFrame">
+        <div class="margin center" id="jackFrame">
 
         <div class="game" id="jackGameBoard"></div>
 

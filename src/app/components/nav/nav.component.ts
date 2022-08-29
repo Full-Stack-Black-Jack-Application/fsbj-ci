@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { url } from 'src/environments/environment';
 
 @Component({
   selector: 'app-nav',
@@ -12,4 +13,8 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  signOut() {
+    window.location.reload();
+    window.location.href = url + '/login'
+  }
 }

@@ -4,10 +4,17 @@
 }
 
 .back {
-    width: 55%;
-    background-color: black;
+    width: 40%;
+    background-color: rgb(16, 16, 16);
     padding: 15px 0px;
     margin: 0px auto;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.block {
+    display: block;
+    width: 600px;
+    margin: auto;
 }
 
 .center {
@@ -22,6 +29,27 @@
     justify-content: space-around;
 }
 
+.center3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+hr {
+    color: whitesmoke;
+    width: 70%;
+}
+
+.input-width {
+    width: 225px;
+    height: 18px;
+}
+
+.input-width2 {
+    width: 150px;
+    height: 18px;
+}
+
 .margin{
     margin: 15px 80px;
 }
@@ -31,6 +59,12 @@ p {
     font-size: 20px;
     font-family: 'Bebas Neue';
     margin: auto 15px;
+}
+
+.pswd {
+    color: white;
+    font-size: 12.5px;
+    font-family: 'Bebas Neue';
 }
 
 .right {
@@ -48,6 +82,25 @@ p {
     text-decoration: none;
 }
 
+.submit:hover {
+    background-color: rgb(0, 90, 193);
+}
+
+.title {
+    font-family: 'Bebas Neue';
+}
+
+.title1 {
+    color:  rgb(255, 238, 0);
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.title2 {
+    color: white;
+    font-size: 40px;
+}
+
 .width1 {
     width: 200px;
     padding: 10px;
@@ -59,13 +112,8 @@ p {
     padding: 5px;
 }
 
-.submit:hover {
-    background-color: rgb(255, 238, 0);
-    color: black;
-}
-
-.title {
-    color: red;
-    font-size: 40px;
-    font-family: 'Bebas Neue';
+.width3 {
+    width: fit-content;
+    min-width: 75px;
+    padding: 5px;
 }

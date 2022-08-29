@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { url } from '../../environments/environment'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpParams
+} from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -21,5 +27,19 @@ export class AuthService {
     const payload = {email, pswd}
 
     return this.http.post<any>(this.loginUrl, payload, {observe: 'response'})
+  }
+
+  private handleError(httpError: HttpErrorResponse): Observable<never> {
+
+    if (httpError.error instanceof ErrorEvent) {
+      console.log('an error occured: ', httpError.error.message);
+    } else {
+      console.error(`
+        Backend returned code ${httpError.status}
+        body was: ${httpError.error}
+      `);
+    }
+
+    return throwError(() => new Error(`Please try again`));
   }
 }

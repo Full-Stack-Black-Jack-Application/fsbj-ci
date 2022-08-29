@@ -1,7 +1,12 @@
 <div class="back">
-    <h2 class="title margin">Welcome Name</h2>
+    <div class="flex margin2">
+        <h2 class="title title2 margin3">Welcome {{ac.email}}</h2>
+    </div>
+    <hr>
 
-    <div>
+    <div class="title title1 center3">Stats</div>
+
+    <div class="block">
         <div class="margin center">
             <p>Wins:</p>
             <p>5</p>
@@ -11,16 +16,30 @@
             <p>5</p>
         </div>
         <div class="margin center">
-            <p>Balance:</p>
-            <p>$500</p>
-        </div>
-        <div class="margin center">
             <p>Referral Code:</p>
             <p>E5M8-I2J1</p>
         </div>
     </div>
+    <hr>
+
+    <div class="title title1 center3">Increase Balance</div>
+
+    <div class="block">
+        <div class="margin center">
+            <p>Balance:</p>
+            <div id="edit" class="right" *ngIf="show">
+                <p>$500</p>
+                <button class="submit width2" (click)="toggle()">Edit</button>
+            </div>
+            <div id="submit" class="right" *ngIf="hide">
+                <input class="input-width" type="number">
+                <button class="submit width2" (click)="toggle()">Deposit</button>
+            </div>
+        </div><br>
+    </div>
+    <hr>
 
     <div class="center2">
-        <button class="submit" routerLink="/game">Play</button>
+        <button class="submit center3 width1 " routerLink="/game">Play</button>
     </div>
 </div>

@@ -3,19 +3,36 @@
     src: local("RoyalFlush"), url(/assets/fonts/royal-flush-font/RoyalFlush.ttf) format("truetype");
 }
 
+.arrow {
+    width: 60px;
+    padding: 8px;
+    border-radius: 5px;
+    color: white;
+    background-color: red;
+    cursor: pointer;
+    font-size: 12px;
+}
+
 .back {
-    background-color: black;
+    background-color: rgb(16, 16, 16);
     padding: 15px 0px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .background {
     background-image: url("/assets/images/table.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: black;
+    background-color: rgb(16, 16, 16);
     height: 100vh;
     z-index: -1;
     margin: -30px auto;
+}
+
+.border {
+    border: 5px dotted whitesmoke;
+    width: fit-content;
+    margin: auto;
 }
 
 .center {
@@ -25,11 +42,23 @@
     margin: auto;
 }
 
+.center2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .characters {
     font-family: 'RoyalFlush';
     font-size: 50px;
     margin: 15px auto 0px auto;
-    color: red;
+    color:  red;
 }
 
 .column {
@@ -48,12 +77,22 @@
     font-family: 'Bebas Neue';
 }
 
+input {
+    width: 150px;
+}
+
 .instruct {
-    width: 800px;
+    display: block;
+    margin: 0px 20px;
 }
 
 img {
     max-width: 100px;
+}
+
+label {
+    font-size: 40px;
+    color: white;
 }
 
 label, input, button, p, #jackPlayButton, .p {
@@ -64,29 +103,51 @@ label, input, button, p, #jackPlayButton, .p {
     margin: 0px auto 30px auto;
 }
 
-p, label, .p {
+.margin2 {
+    margin: auto 30px;
+}
+
+.margin3 {
+    margin: 20px 100px;
+}
+
+.margin4 {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+p {
     color: white;
-    font-size: 20px;
+    font-size: 15px;
+}
+
+.p {
+    color: white;
+    font-size: 25px;
 }
 
 .submit {
-    width: 130px;
+    width: 200px;
     padding: 10px;
     border-radius: 5px;
     color: white;
     background-color: red;
     cursor: pointer;
-    margin: 30px auto;
-    font-size: 20px;
+    margin: 5px auto;
+    font-size: 25px;
 }
 
-.submit:hover {
-    background-color: rgb(255, 238, 0);
-    color: black;
+.submit:hover, .arrow:hover {
+    background-color: rgb(0, 90, 193);
 }
 
 .title {
-    color: red;
-    font-size: 40px;
+    color:  rgb(255, 238, 0);
+    font-size: 20px;
     font-family: 'Bebas Neue';
+    margin: 0px 5px;
+}
+
+.top {
+    margin-top: 30px;
 }

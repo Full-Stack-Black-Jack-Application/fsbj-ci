@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ac: AppComponent) { }
 
   ngOnInit(): void {
   }
 
+  show = true;
+  hide = false;
+
+  toggle() {
+    this.show = !this.show;
+    this.hide = !this.hide;
+  }
 }
