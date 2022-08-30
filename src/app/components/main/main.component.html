@@ -1,1 +1,45 @@
-<p>main works!</p>
+<div class="back">
+    <div class="flex margin2">
+        <h2 class="title title2 margin3" id="jackWelcomeName">Welcome {{ac.email}}</h2>
+    </div>
+    <hr>
+
+    <div class="title title1 center3">Stats</div>
+
+    <div class="block">
+        <div class="margin center">
+            <p>Wins:</p>
+            <p id="jackWins">0</p>
+        </div>
+        <div class="margin center">
+            <p>Losses:</p>
+            <p id="jackLosses">0</p>
+        </div>
+        <div class="margin center">
+            <p>Referral Code:</p>
+            <p id="jackReferral">xxxx-xxxx-xxxx</p>
+        </div>
+    </div>
+    <hr>
+
+    <div class="title title1 center3">Increase Balance</div>
+
+    <div class="block">
+        <div class="margin center">
+            <p>Balance:</p>
+            <div id="edit" class="right" *ngIf="show">
+                <p id="jackBalance">$0</p>
+                <button class="submit width2" (click)="toggle()">Edit</button>
+            </div>
+            <div id="submit" class="right" *ngIf="hide">
+                <input class="input-width" type="number" id="jackBalanceInput">
+                <button class="submit width2" (click)="jackBalanceDeposit()">Deposit</button>
+            </div>
+        </div><br>
+    </div>
+    <hr>
+
+    <div class="center2">
+        <button class="submit center3 width1 " routerLink="/game">Play</button>
+    </div>
+</div>

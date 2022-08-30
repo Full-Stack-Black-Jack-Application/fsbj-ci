@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -11,10 +12,31 @@ export class GameComponent implements OnInit {
   static aceCount: number = 0;
   static deckIDGlobal: string = "";
   static isDisabled: boolean = false;
+  static currentUserBalance: number = 0;
+  static currentUserID: number = 0;
 
-  constructor() { }
+  show = false;
+  hide = true;
 
-  ngOnInit(): void {
+  constructor(private router: Router) {
+    if (document.cookie === "") {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  async ngOnInit(): Promise<void> {
+    const res = await fetch(`http://localhost:5000/api/users/${document.cookie.split("=")[1]}`);
+    if (res.status === 200) {
+        const data = await res.json();
+        document.getElementById("jackCurrentBalance")!.innerHTML = `$${data.balance}`;
+        GameComponent.currentUserBalance = data.balance;
+        GameComponent.currentUserID = data.id;
+    }
+  }
+
+  toggle() {
+    this.show=!this.show;
+    this.hide=!this.hide;
   }
 
   get getIsDisabled() {
@@ -22,6 +44,11 @@ export class GameComponent implements OnInit {
   }
 
   async jackStartBlackJack(): Promise<void> {
+    if (GameComponent.currentUserBalance < (<HTMLInputElement> document.getElementById("jackWagerAmount")).valueAsNumber) {
+      document.getElementById("jackPlayButton")!.innerHTML = "Insufficient Funds";
+      return;
+    }
+
     document.getElementById("jackGameBoard")?.remove();
     const newJackGameBoard = document.createElement("div");
     newJackGameBoard.setAttribute("id", "jackGameBoard",);
@@ -56,7 +83,7 @@ export class GameComponent implements OnInit {
 
     let buttonNode = document.createElement("button");
     buttonNode.setAttribute(
-      'style',     
+      'style',
       'padding: 10px; margin: -10px auto 20px auto; width: 130px; font-family: "Bebas Neue"; border-radius: 5px; background-color: white; cursor: pointer; font-size: 20px;'
     )
     buttonNode.innerHTML = "Hit";
@@ -68,7 +95,7 @@ export class GameComponent implements OnInit {
     }
     buttonNode = document.createElement("button");
     buttonNode.setAttribute(
-      'style',     
+      'style',
       'padding: 10px; margin: -10px auto 20px auto;  width: 130px; font-family: "Bebas Neue"; border-radius: 5px; background-color: white; cursor: pointer; auto; font-size: 20px;'
       )
     buttonNode.innerHTML = "Stand";
@@ -194,13 +221,30 @@ export class GameComponent implements OnInit {
       } else {
         const jackGameCurrentValue = document.getElementById("jackGameCurrentValue");
         if (jackGameCurrentValue != null) {
-          jackGameCurrentValue.innerHTML += ", Bust!"
+          let finalAmountb = (<HTMLInputElement> document.getElementById("jackWagerAmount")).valueAsNumber;
+          if (finalAmountb < 0) {finalAmountb = 0;}
+
+          jackGameCurrentValue.innerHTML += `, Bust! Lost $${finalAmountb}...`
+
+          GameComponent.currentUserBalance -= finalAmountb;
+
+          const newBalanceObject = {
+            "balance": GameComponent.currentUserBalance
+          };
+
+          const res = await fetch(`http://localhost:5000/api/users/patch/${GameComponent.currentUserID}`, {
+            method: "PATCH",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newBalanceObject)
+          });
+
           document.getElementById("jackGameHitButton")?.remove();
           document.getElementById("jackGameStandButton")?.remove();
           const jackPlayButton = document.getElementById("jackPlayButton");
           if (jackPlayButton != null) {
             jackPlayButton.innerHTML = "Play Again";
             GameComponent.isDisabled = false;
+            document.getElementById("jackCurrentBalance")!.innerHTML = `$${GameComponent.currentUserBalance}`;
           }
         }
       }
@@ -283,10 +327,32 @@ export class GameComponent implements OnInit {
       'style',
       'color: white; font-size: 30px; font-family: "Bebas Neue";'
     );
+    let finalAmount = (<HTMLInputElement> document.getElementById("jackWagerAmount")).valueAsNumber;
+    if (finalAmount < 0) {finalAmount = 0;}
     if (GameComponent.currentValue >= dealerCurrentValue || dealerCurrentValue > 21) {
-        pNode.innerHTML = `You won!`;
+        pNode.innerHTML = `You won $${finalAmount}!`;
+        GameComponent.currentUserBalance += finalAmount;
+        const newBalanceObject = {
+          "balance": GameComponent.currentUserBalance
+        };
+
+        const res = await fetch(`http://localhost:5000/api/users/patch/${GameComponent.currentUserID}`, {
+          method: "PATCH",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(newBalanceObject)
+        });
     } else {
-        pNode.innerHTML = `You lost...`;
+        pNode.innerHTML = `You lost $${finalAmount}...`;
+        GameComponent.currentUserBalance -= finalAmount;
+        const newBalanceObject = {
+          "balance": GameComponent.currentUserBalance
+        };
+
+        const res = await fetch(`http://localhost:5000/api/users/patch/${GameComponent.currentUserID}`, {
+          method: "PATCH",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(newBalanceObject)
+        });
     }
     if (jackGameBoard != null) {
       jackGameBoard.appendChild(pNode);
@@ -296,6 +362,7 @@ export class GameComponent implements OnInit {
     if (jackPlayButton != null) {
       jackPlayButton.innerHTML = "Play Again";
       GameComponent.isDisabled = false;
+      document.getElementById("jackCurrentBalance")!.innerHTML = `$${GameComponent.currentUserBalance}`;
     }
   }
 }
