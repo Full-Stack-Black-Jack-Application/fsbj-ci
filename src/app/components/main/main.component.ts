@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Router } from '@angular/router';
+import { url } from '../../../environments/environment';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +17,7 @@ export class MainComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    const res = await fetch(`http://localhost:5000/api/users/${document.cookie.split("=")[1]}`);
+    const res = await fetch(`${url}/users/${document.cookie.split("=")[1]}`);
     if (res.status === 200) {
         const data = await res.json();
         document.getElementById("jackWelcomeName")!.innerHTML = `Welcome ${data.firstName} ${data.lastName}`;
@@ -43,7 +44,7 @@ export class MainComponent implements OnInit {
     this.hide = !this.hide;
 
     if (this.show) {
-      const res = await fetch(`http://localhost:5000/api/users/${document.cookie.split("=")[1]}`);
+      const res = await fetch(`${url}/users/${document.cookie.split("=")[1]}`);
       if (res.status === 200) {
           const data = await res.json();
           if (isNaN(jackBalanceInputValue)) {jackBalanceInputValue = 0};
@@ -56,7 +57,7 @@ export class MainComponent implements OnInit {
             "referralCode": data.referralCode
           };
 
-          const resb = await fetch(`http://localhost:5000/api/users/update/${data.id}`, {
+          const resb = await fetch(`${url}/users/update/${data.id}`, {
             method: "PUT",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(updatedUserObject)

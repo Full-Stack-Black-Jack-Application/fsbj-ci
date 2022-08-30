@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { url } from '../../../environments/environment';
 
 @Component({
   selector: 'app-main',
@@ -25,7 +26,7 @@ export class GameComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    const res = await fetch(`http://localhost:5000/api/users/${document.cookie.split("=")[1]}`);
+    const res = await fetch(`${url}/users/${document.cookie.split("=")[1]}`);
     if (res.status === 200) {
         const data = await res.json();
         document.getElementById("jackCurrentBalance")!.innerHTML = `$${data.balance}`;
@@ -232,7 +233,7 @@ export class GameComponent implements OnInit {
             "balance": GameComponent.currentUserBalance
           };
 
-          const res = await fetch(`http://localhost:5000/api/users/patch/${GameComponent.currentUserID}`, {
+          const res = await fetch(`${url}/users/patch/${GameComponent.currentUserID}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newBalanceObject)
@@ -336,7 +337,7 @@ export class GameComponent implements OnInit {
           "balance": GameComponent.currentUserBalance
         };
 
-        const res = await fetch(`http://localhost:5000/api/users/patch/${GameComponent.currentUserID}`, {
+        const res = await fetch(`${url}/users/patch/${GameComponent.currentUserID}`, {
           method: "PATCH",
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(newBalanceObject)
@@ -348,7 +349,7 @@ export class GameComponent implements OnInit {
           "balance": GameComponent.currentUserBalance
         };
 
-        const res = await fetch(`http://localhost:5000/api/users/patch/${GameComponent.currentUserID}`, {
+        const res = await fetch(`${url}/users/patch/${GameComponent.currentUserID}`, {
           method: "PATCH",
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(newBalanceObject)

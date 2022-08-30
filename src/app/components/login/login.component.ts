@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ClientMessage } from 'src/app/models/client-message/client-message';
+import { url } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +36,7 @@ export class LoginComponent {
       "pswd": (<HTMLInputElement> document.getElementById("pswd"))?.value.trim()
     };
 
-    const res = await fetch(`http://localhost:5000/api/login`, {
+    const res = await fetch(`${url}/login`, {
       method: "POST",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(loginObject)
@@ -63,7 +64,7 @@ export class LoginComponent {
         next: (response) => {
           this.isLoading= false;
 
-          console.log(response);
+          //console.log(response);
 
           const token = response.headers.get('blackjack-token') || '{}';
 
@@ -94,9 +95,9 @@ export class LoginComponent {
         "referralCode": (objectRefCode == "" ? "xxxx-xxxx-xxxx" : objectRefCode)
       };
 
-      console.log(registerObject);
+      //console.log(registerObject);
 
-      const res = await fetch(`http://localhost:5000/api/users`, {
+      const res = await fetch(`${url}/users`, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(registerObject)
@@ -111,7 +112,7 @@ export class LoginComponent {
       this.userService.registerUser(this.user)
       .subscribe({
         next: (data) => {
-          console.log(data);
+          //console.log(data);
           this.clientMessage.message = `Registration Seuccessful ${data.firstName, data.lastName}`
           this.router.navigate(['/main']);
         },
@@ -121,7 +122,7 @@ export class LoginComponent {
       this.userService.registerUser(this.user)
       .subscribe({
         next: (data) => {
-          console.log(data);
+          //console.log(data);
           this.clientMessage.message = `Registration Successful ${data.firstName, data.lastName}`
           this.router.navigate(['/main']);
         },

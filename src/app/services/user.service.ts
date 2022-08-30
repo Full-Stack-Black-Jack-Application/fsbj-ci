@@ -44,7 +44,7 @@ export class UserService {
   private handleError(httpError: HttpErrorResponse): Observable<never> {
 
     if (httpError.error instanceof ErrorEvent) {
-      console.log('an error occured: ', httpError.error.message);
+      //console.log('an error occured: ', httpError.error.message);
     } else {
       console.error(`
         Backend returned code ${httpError.status}
