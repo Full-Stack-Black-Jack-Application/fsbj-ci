@@ -224,7 +224,7 @@ export class ProfileComponent implements OnInit {
             "lastName": data.lastName,
             "email": data.email,
             "pswd": data.pswd,
-            "balance": (jackBalanceInputValue <= 0 ? data.balance : data.balance-jackBalanceInputValue),
+            "balance": (jackBalanceInputValue >= data.balance ? 0 : data.balance-jackBalanceInputValue),
             "referralCode": data.referralCode
           };
 
