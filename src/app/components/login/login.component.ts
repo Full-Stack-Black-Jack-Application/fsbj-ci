@@ -84,12 +84,14 @@ export class LoginComponent {
 
 
     async registerUser() {
+      const objectRefCode = (<HTMLInputElement> document.getElementById("refCode"))?.value.trim();
+
       const registerObject = {
         "email": (<HTMLInputElement> document.getElementById("email"))?.value.trim(),
         "firstName": (<HTMLInputElement> document.getElementById("fName"))?.value.trim(),
         "lastName": (<HTMLInputElement> document.getElementById("lName"))?.value.trim(),
         "pswd": (<HTMLInputElement> document.getElementById("pswdSignUp"))?.value.trim(),
-        "referralCode": (<HTMLInputElement> document.getElementById("refCode"))?.value.trim()
+        "referralCode": (objectRefCode == "" ? "xxxx-xxxx-xxxx" : objectRefCode)
       };
 
       console.log(registerObject);
